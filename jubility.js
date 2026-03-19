@@ -805,6 +805,16 @@
     log(`  Common: ${commonEntries.length} entries, total = ${commonJub.toFixed(1)}`);
     log(`  === TOTAL JUBILITY: ${totalJub.toFixed(1)} ===`);
 
+    // ---- Debug: print top entries for verification ----
+    log('--- PICKUP TOP 30 ---');
+    pickupEntries.forEach((e, i) =>
+      log(`  ${i + 1}. [mid:${e.mid}] ${e.name} (${e.diff} Lv${e.level}) jub=${e.jubility}`)
+    );
+    log('--- COMMON TOP 30 ---');
+    commonEntries.forEach((e, i) =>
+      log(`  ${i + 1}. [mid:${e.mid}] ${e.name} (${e.diff} Lv${e.level}) jub=${e.jubility}`)
+    );
+
     // ---- Step 6: Generate image ----
     setProgress(90, 'Step 6/6: Generating image...');
     log('[6/6] Generating image...');
