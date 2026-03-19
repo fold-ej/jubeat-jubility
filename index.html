@@ -87,13 +87,28 @@
   <script>
     const btn = document.getElementById('copyBtn');
     const toast = document.getElementById('toast');
+    let cachedCode = null;
+
+    fetch('jubility.js')
+      .then(res => res.ok ? res.text() : Promise.reject())
+      .then(code => { cachedCode = code; })
+      .catch(() => {});
 
     btn.addEventListener('click', async () => {
       try {
-        const res = await fetch('jubility.js');
-        if (!res.ok) throw new Error('fetch failed');
-        const code = await res.text();
-        await navigator.clipboard.writeText(code);
+        if (!cachedCode) {
+          const res = await fetch('jubility.js');
+          if (!res.ok) throw new Error('fetch failed');
+          cachedCode = await res.text();
+        }
+        const textarea = document.createElement('textarea');
+        textarea.value = cachedCode;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
         toast.classList.add('show');
         setTimeout(() => toast.classList.remove('show'), 2000);
       } catch (e) {
