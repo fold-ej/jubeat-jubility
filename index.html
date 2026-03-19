@@ -87,8 +87,19 @@
       margin-top: 2.5rem;
       margin-bottom: 0.5rem;
     }
-    .mobile-usage {
+    .mobile-row {
       margin-top: 0.5rem;
+      display: flex;
+      gap: 3rem;
+      justify-content: center;
+    }
+    @media (max-width: 700px) {
+      .mobile-row {
+        flex-direction: column;
+        gap: 2rem;
+      }
+    }
+    .mobile-usage {
       color: #8b949e;
       font-size: 0.85rem;
       text-align: left;
@@ -145,27 +156,50 @@
       4. 約2〜4分後にPNG画像が自動ダウンロード
     </div>
   </div>
-  <div class="section-title">모바일에서 사용하기</div>
-  <div class="mobile-usage">
-    북마클릿(bookmarklet)을 이용하면 핸드폰에서도 실행할 수 있습니다.
-    <details>
-      <summary>iOS (Safari)</summary>
-      1. 아무 페이지나 북마크에 추가<br>
-      2. 북마크 편집 → URL을 아래 코드로 교체<br>
-      <code class="bookmarklet-code">javascript:void(document.head.appendChild(Object.assign(document.createElement('script'),{src:'https://fold-ej.github.io/jubeat-jubility/jubility.js'})))</code>
-      3. <a href="https://p.eagate.573.jp/game/jubeat/beyond/playdata/index.html" target="_blank">e-amusement 플레이 데이터</a>에 로그인<br>
-      4. 주소창 탭 → 저장한 북마크 선택<br>
-      5. 약 2~4분 후 PNG 이미지 자동 다운로드
-    </details>
-    <details>
-      <summary>Android (Chrome)</summary>
-      1. 아무 페이지나 북마크에 추가<br>
-      2. 북마크 편집 → URL을 아래 코드로 교체<br>
-      <code class="bookmarklet-code">javascript:void(document.head.appendChild(Object.assign(document.createElement('script'),{src:'https://fold-ej.github.io/jubeat-jubility/jubility.js'})))</code>
-      3. <a href="https://p.eagate.573.jp/game/jubeat/beyond/playdata/index.html" target="_blank">e-amusement 플레이 데이터</a>에 로그인<br>
-      4. 주소창에 북마크 이름 입력 → 북마크 선택<br>
-      5. 약 2~4분 후 PNG 이미지 자동 다운로드
-    </details>
+  <div class="section-title">모바일에서 사용하기 / モバイルで使う</div>
+  <div class="mobile-row">
+    <div class="mobile-usage">
+      북마클릿(bookmarklet)을 이용하면 핸드폰에서도 실행할 수 있습니다.
+      <details>
+        <summary>iOS (Safari)</summary>
+        1. 아무 페이지나 북마크에 추가<br>
+        2. 북마크 편집 → URL을 아래 코드로 교체<br>
+        <code class="bookmarklet-code">javascript:void(document.head.appendChild(Object.assign(document.createElement('script'),{src:'https://fold-ej.github.io/jubeat-jubility/jubility.js'})))</code>
+        3. <a href="https://p.eagate.573.jp/game/jubeat/beyond/playdata/index.html" target="_blank">e-amusement 플레이 데이터</a>에 로그인<br>
+        4. 주소창 탭 → 저장한 북마크 선택<br>
+        5. 약 2~4분 후 PNG 이미지 자동 다운로드
+      </details>
+      <details>
+        <summary>Android (Chrome)</summary>
+        1. 아무 페이지나 북마크에 추가<br>
+        2. 북마크 편집 → URL을 아래 코드로 교체<br>
+        <code class="bookmarklet-code">javascript:void(document.head.appendChild(Object.assign(document.createElement('script'),{src:'https://fold-ej.github.io/jubeat-jubility/jubility.js'})))</code>
+        3. <a href="https://p.eagate.573.jp/game/jubeat/beyond/playdata/index.html" target="_blank">e-amusement 플레이 데이터</a>에 로그인<br>
+        4. 주소창에 북마크 이름 입력 → 북마크 선택<br>
+        5. 약 2~4분 후 PNG 이미지 자동 다운로드
+      </details>
+    </div>
+    <div class="mobile-usage">
+      ブックマークレット(bookmarklet)を使えばスマホでも実行できます。
+      <details>
+        <summary>iOS (Safari)</summary>
+        1. 適当なページをブックマークに追加<br>
+        2. ブックマークを編集 → URLを以下のコードに置換<br>
+        <code class="bookmarklet-code">javascript:void(document.head.appendChild(Object.assign(document.createElement('script'),{src:'https://fold-ej.github.io/jubeat-jubility/jubility.js'})))</code>
+        3. <a href="https://p.eagate.573.jp/game/jubeat/beyond/playdata/index.html" target="_blank">e-amusement プレーデータ</a>にログイン<br>
+        4. アドレスバーをタップ → 保存したブックマークを選択<br>
+        5. 約2〜4分後にPNG画像が自動ダウンロード
+      </details>
+      <details>
+        <summary>Android (Chrome)</summary>
+        1. 適当なページをブックマークに追加<br>
+        2. ブックマークを編集 → URLを以下のコードに置換<br>
+        <code class="bookmarklet-code">javascript:void(document.head.appendChild(Object.assign(document.createElement('script'),{src:'https://fold-ej.github.io/jubeat-jubility/jubility.js'})))</code>
+        3. <a href="https://p.eagate.573.jp/game/jubeat/beyond/playdata/index.html" target="_blank">e-amusement プレーデータ</a>にログイン<br>
+        4. アドレスバーにブックマーク名を入力 → ブックマークを選択<br>
+        5. 約2〜4分後にPNG画像が自動ダウンロード
+      </details>
+    </div>
   </div>
   <script>
     const btn = document.getElementById('copyBtn');
