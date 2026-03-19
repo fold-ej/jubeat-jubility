@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jubeat Jubility Visualizer</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0d1117;
+      color: #e6edf3;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    p {
+      color: #8b949e;
+      margin-bottom: 2rem;
+      text-align: center;
+      line-height: 1.6;
+    }
+    button {
+      background: #238636;
+      color: #fff;
+      border: none;
+      padding: 1rem 2.5rem;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover { background: #2ea043; }
+    button:active { background: #1a7f37; }
+    .toast {
+      position: fixed;
+      top: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(-20px);
+      background: #238636;
+      color: #fff;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      opacity: 0;
+      transition: opacity 0.3s, transform 0.3s;
+      pointer-events: none;
+    }
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+    .usage {
+      margin-top: 2.5rem;
+      color: #8b949e;
+      font-size: 0.9rem;
+      text-align: center;
+      line-height: 1.8;
+    }
+    .usage strong { color: #e6edf3; }
+  </style>
+</head>
+<body>
+  <h1>jubeat Jubility Visualizer</h1>
+  <p>유빌리티 계산 + 시각화 스크립트</p>
+  <button id="copyBtn">스크립트 복사</button>
+  <div class="toast" id="toast">복사 완료</div>
+  <div class="usage">
+    <strong>사용법</strong><br>
+    1. e-amusement 사이트 로그인<br>
+    2. music.html 페이지 이동<br>
+    3. 개발자 도구(F12) → Console<br>
+    4. 위 버튼으로 복사한 코드 붙여넣기<br>
+    5. 약 2~4분 후 PNG 이미지 자동 다운로드
+  </div>
+  <script>
+    const btn = document.getElementById('copyBtn');
+    const toast = document.getElementById('toast');
+
+    btn.addEventListener('click', async () => {
+      try {
+        const res = await fetch('jubility.js');
+        if (!res.ok) throw new Error('fetch failed');
+        const code = await res.text();
+        await navigator.clipboard.writeText(code);
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2000);
+      } catch (e) {
+        alert('복사에 실패했습니다. 직접 jubility.js 파일을 열어 복사해주세요.');
+      }
+    });
+  </script>
+</body>
+</html>
