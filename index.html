@@ -204,22 +204,12 @@
   <script>
     const btn = document.getElementById('copyBtn');
     const toast = document.getElementById('toast');
-    let cachedCode = null;
+    const snippet = "fetch('https://raw.githubusercontent.com/fold-ej/jubeat-jubility/main/jubility.js').then(r=>r.text()).then(eval)";
 
-    fetch('jubility.js')
-      .then(res => res.ok ? res.text() : Promise.reject())
-      .then(code => { cachedCode = code; })
-      .catch(() => {});
-
-    btn.addEventListener('click', async () => {
+    btn.addEventListener('click', () => {
       try {
-        if (!cachedCode) {
-          const res = await fetch('jubility.js');
-          if (!res.ok) throw new Error('fetch failed');
-          cachedCode = await res.text();
-        }
         const textarea = document.createElement('textarea');
-        textarea.value = cachedCode;
+        textarea.value = snippet;
         textarea.style.position = 'fixed';
         textarea.style.opacity = '0';
         document.body.appendChild(textarea);
@@ -229,7 +219,7 @@
         toast.classList.add('show');
         setTimeout(() => toast.classList.remove('show'), 2000);
       } catch (e) {
-        alert('복사에 실패했습니다. 직접 jubility.js 파일을 열어 복사해주세요.');
+        alert('복사에 실패했습니다.');
       }
     });
   </script>
