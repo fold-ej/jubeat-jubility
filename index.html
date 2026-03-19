@@ -57,8 +57,13 @@
       opacity: 1;
       transform: translateX(-50%) translateY(0);
     }
-    .usage {
+    .usage-row {
       margin-top: 2.5rem;
+      display: flex;
+      gap: 3rem;
+      justify-content: center;
+    }
+    .usage {
       color: #8b949e;
       font-size: 0.9rem;
       text-align: center;
@@ -70,6 +75,12 @@
       text-decoration: none;
     }
     .usage a:hover { text-decoration: underline; }
+    @media (max-width: 700px) {
+      .usage-row {
+        flex-direction: column;
+        gap: 2rem;
+      }
+    }
     .section-title {
       color: #e6edf3;
       font-size: 1rem;
@@ -118,12 +129,21 @@
   <p>유빌리티 계산 + 시각화 스크립트</p>
   <button id="copyBtn">스크립트 복사</button>
   <div class="toast" id="toast">복사 완료</div>
-  <div class="usage">
-    <strong>사용법</strong><br>
-    1. <a href="https://p.eagate.573.jp/game/jubeat/beyond/playdata/index.html" target="_blank">e-amusement 플레이 데이터</a> 페이지에 로그인<br>
-    2. 개발자 도구(F12) → Console<br>
-    3. 위 버튼으로 복사한 코드 붙여넣기 (악곡데이터 페이지로 자동 이동)<br>
-    4. 약 2~4분 후 PNG 이미지 자동 다운로드
+  <div class="usage-row">
+    <div class="usage">
+      <strong>사용법</strong><br>
+      1. <a href="https://p.eagate.573.jp/game/jubeat/beyond/playdata/index.html" target="_blank">e-amusement 플레이 데이터</a> 페이지에 로그인<br>
+      2. 개발자 도구(F12) → Console<br>
+      3. 위 버튼으로 복사한 코드 붙여넣기<br>
+      4. 약 2~4분 후 PNG 이미지 자동 다운로드
+    </div>
+    <div class="usage">
+      <strong>使い方</strong><br>
+      1. <a href="https://p.eagate.573.jp/game/jubeat/beyond/playdata/index.html" target="_blank">e-amusement プレーデータ</a>にログイン<br>
+      2. デベロッパーツール(F12) → Console<br>
+      3. 上のボタンでコピーしたコードを貼り付け<br>
+      4. 約2〜4分後にPNG画像が自動ダウンロード
+    </div>
   </div>
   <div class="section-title">모바일에서 사용하기</div>
   <div class="mobile-usage">
