@@ -2,8 +2,9 @@
 // jubeat Jubility Visualizer v1.2
 //
 // Usage: Copy & paste this entire script into the browser console
-// while on https://p.eagate.573.jp/game/jubeat/beyond/playdata/music.html
-// (must be logged in)
+// while on e-amusement jubeat play data page (must be logged in)
+// Works on both play data top and 악곡데이터(music) page
+// - If run from play data top, auto-navigates to music page
 //
 // Output: Downloads a PNG image with jubility visualization
 // Expected time: 2~4 minutes (fetches ~1000+ detail pages)
@@ -15,6 +16,18 @@
 
 (async () => {
   'use strict';
+
+  // ===== AUTO-NAVIGATE: redirect to music page if on play data top =====
+  const MUSIC_URL = 'https://p.eagate.573.jp/game/jubeat/beyond/playdata/music.html';
+  if (!location.href.includes('/playdata/music.html')) {
+    if (location.href.includes('/playdata/')) {
+      console.log('[Jubility] play data 페이지에서 악곡데이터 페이지로 이동합니다...');
+      location.href = MUSIC_URL;
+      return;
+    }
+    console.error('[Jubility] e-amusement jubeat play data 페이지에서 실행해주세요.');
+    return;
+  }
 
   // ===== COMMON SONGS (all seasons before "beyond the Ave.") =====
   // Songs NOT in this set are classified as PICKUP.

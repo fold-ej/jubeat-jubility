@@ -65,6 +65,11 @@
       line-height: 1.8;
     }
     .usage strong { color: #e6edf3; }
+    .usage a {
+      color: #58a6ff;
+      text-decoration: none;
+    }
+    .usage a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -74,11 +79,10 @@
   <div class="toast" id="toast">복사 완료</div>
   <div class="usage">
     <strong>사용법</strong><br>
-    1. e-amusement 사이트 로그인<br>
-    2. music.html 페이지 이동<br>
-    3. 개발자 도구(F12) → Console<br>
-    4. 위 버튼으로 복사한 코드 붙여넣기<br>
-    5. 약 2~4분 후 PNG 이미지 자동 다운로드
+    1. <a href="https://p.eagate.573.jp/game/jubeat/beyond/playdata/index.html" target="_blank">e-amusement 플레이 데이터</a> 페이지에 로그인<br>
+    2. 개발자 도구(F12) → Console<br>
+    3. 위 버튼으로 복사한 코드 붙여넣기 (악곡데이터 페이지로 자동 이동)<br>
+    4. 약 2~4분 후 PNG 이미지 자동 다운로드
   </div>
   <script>
     const btn = document.getElementById('copyBtn');
