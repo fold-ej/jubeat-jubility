@@ -2,9 +2,8 @@
 // jubeat Jubility Visualizer v1.2
 //
 // Usage: Copy & paste this entire script into the browser console
-// while on e-amusement jubeat play data page (must be logged in)
-// Works on both play data top and 악곡데이터(music) page
-// - If run from play data top, auto-navigates to music page
+// while on any e-amusement jubeat page (must be logged in)
+// e.g. play data top, 악곡데이터, etc.
 //
 // Output: Downloads a PNG image with jubility visualization
 // Expected time: 2~4 minutes (fetches ~1000+ detail pages)
@@ -17,15 +16,9 @@
 (async () => {
   'use strict';
 
-  // ===== AUTO-NAVIGATE: redirect to music page if on play data top =====
-  const MUSIC_URL = 'https://p.eagate.573.jp/game/jubeat/beyond/playdata/music.html';
-  if (!location.href.includes('/playdata/music.html')) {
-    if (location.href.includes('/playdata/')) {
-      console.log('[Jubility] play data 페이지에서 악곡데이터 페이지로 이동합니다...');
-      location.href = MUSIC_URL;
-      return;
-    }
-    console.error('[Jubility] e-amusement jubeat play data 페이지에서 실행해주세요.');
+  // ===== DOMAIN CHECK =====
+  if (!location.hostname.includes('eagate.573.jp')) {
+    console.error('[Jubility] e-amusement 사이트(eagate.573.jp)에서 실행해주세요.');
     return;
   }
 
