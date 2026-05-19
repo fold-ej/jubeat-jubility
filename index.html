@@ -204,7 +204,7 @@
   <script>
     const btn = document.getElementById('copyBtn');
     const toast = document.getElementById('toast');
-    const snippet = "$.getScript('https://raw.githubusercontent.com/fold-ej/jubeat-jubility/main/jubility.js')";
+    const snippet = "javascript:void(document.head.appendChild(Object.assign(document.createElement('script'),{src:'https://fold-ej.github.io/jubeat-jubility/jubility.js'})))";
 
     btn.addEventListener('click', () => {
       try {
